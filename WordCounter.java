@@ -4,10 +4,10 @@ public class WordCounter{
     public WordCounter(){
         
     }
-    public String processText(StringBuffer input, String y){
-        return null;
+    public static int processText(StringBuffer input, String y) throws InvalidStopwordException, TooSmallText {
+        return 0;
     }
-    public String processFile(String y){
+    public StringBuffer processFile(String y) throws EmptyFileException{
 
         return null;
     }
