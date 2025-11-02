@@ -1,9 +1,6 @@
-public class EmptyFileException extends Exception{
+public class EmptyFileException extends IOException {
 
-
-    public String toString(){
-
-        return null;
-    }
-    
+    public EmptyFileException(String message) {
+        super(message); 
+    } 
 }

@@ -1,9 +1,6 @@
-public class InvalidStopwordException extends Exception{
+public class InvalidStopwordException extends Exception {
 
-
-    public String toString(){
-
-        return null;
+    public InvalidStopwordException(String message) {
+        super(message);
     }
-    
 }
