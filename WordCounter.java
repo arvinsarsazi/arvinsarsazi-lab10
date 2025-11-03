@@ -1,9 +1,7 @@
 public class WordCounter{
 
-    static InputStream sysInBackup;
-    public WordCounter(){
-        
-    }
+    private static Scanner SCANNER = new Scanner(System.in);
+   
     public static int processText(StringBuffer input, String y) throws InvalidStopwordException, TooSmallText {
         Pattern p = Pattern.compile("[A-Za-z0-9']+");
         Marcher m = p.matcher(input);
@@ -32,11 +30,35 @@ public class WordCounter{
         return count;
     }
     public static StringBuffer processFile(String y) throws EmptyFileException{
+        String currentPath = y;
 
-        return null;
+        while (true) {
+            File f = new File(currentPath);
+            Scanner fileScanner = new Scanner(f);
+            try {
+                StringBuffer result = new StringBuffer();
+
+                while (fileScanner.hasNextLine()) {
+                    String line = fileScanner.nextLine();
+                    result.append(line);
+                }
+
+                if (result.length() == 0) {
+                    throw new EmptyFileException(currentPath + " was empty");
+                }
+
+                return result;
+
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found. Enter a valid filename:");
+                currentPath = SCANNER.nextLine();
+            }
+        }
     }
 
     public static void main(String[] args) {
+
+        
 
     }
 }
